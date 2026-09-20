@@ -1,75 +1,8 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
   "permissions": {
     "allow": [
-      "Bash(*)",
-      "Edit(~/.claude/skills/**)",
-      "Glob",
-      "Grep",
       "Read",
-      "WebFetch",
-      "WebSearch"
-    ],
-    "deny": [],
-    "ask": [
-      "Bash(gh repo delete:*)",
-      "Bash(gh gist create:*)"
-    ],
-    "defaultMode": "auto"
-  },
-  "hooks": {},
-  "model": "opus",
-    "modelSettings": {
-    "claude-opus-5": {
-      "effortLevel": "high"
-    }
-  },
-  "statusLine": {
-    "type": "command",
-    "command": ".claude/statusline.sh"
-  },
-  "enabledPlugins": {},
-  "outputStyle": "Explanatory",
-  "language": "japanese",
-  "spinnerVerbs": {
-    "mode": "replace",
-    "verbs": [
-      "zawazawa",
-      "korokoro",
-      "pekopeko",
-      "ざわざわ",
-      "ころころ",
-      "ぺこぺこ",
-      "ぽんぽん",
-      "がさごそ",
-      "そわそわ",
-      "こそこそ",
-      "ぷにぷに",
-      "ふわふわ",
-      "ぺたぺた",
-      "キョロキョロ",
-      "そろりそろり",
-      "七転八倒",
-      "暗中模索",
-      "五里霧中",
-      "もやもや",
-      "キラキラ"
+      "Write"
     ]
-  },
-  "effortLevel": "high",
-  "autoUpdatesChannel": "latest",
-  "tui": "fullscreen",
-  "voice": {
-    "enabled": false
-  },
-  "skipWorkflowUsageWarning": true,
-  "theme": "dark",
-  "remoteControlAtStartup": true,
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  }
 }

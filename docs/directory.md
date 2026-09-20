@@ -9,15 +9,15 @@ description: リポジトリ内のディレクトリと主要ファイルの役�
 - ./claude: Claude Codeのユーザー設定テンプレート
   - settings.json: Claude Codeの設定
   - statusline.sh: モデル名、コンテキスト使用率、レート制限を表示するステータスライン
-  - rules/: 全プロジェクトに適用するClaude Codeのユーザーレベルルール
-    - output-format.md: 回答の言語、構成、検証結果の示し方
-    - secret-management.md: シークレットの参照、保存、表示に関する制約
-    - external-communication.md: 外部送信・公開前の確認手順
-    - git.md: Gitの確認、コミット、同期に関する運用ルール
-    - learning-loop.md: 訂正や失敗から再利用可能な知識へ反映する手順
 - ./src: ソースコードディレクトリ
 - ./docs: ドキュメントディレクトリ
   - README.md: プロジェクトの要件や仕様ドキュメントへのインデックス
+  - agent-guides/: CodexとClaude Codeが作業条件に応じて参照する共通手順
+    - [development.md](agent-guides/development.md): 実装・検証、調査、ブラウザ操作、並行作業の開発ルール
+    - [external-communication.md](agent-guides/external-communication.md): 外部送信・公開前の確認手順
+    - [git.md](agent-guides/git.md): Gitの確認、コミット、同期に関する運用ルール
+    - [learning.md](agent-guides/learning.md): 訂正や失敗から再利用可能な知識へ反映する手順
+    - [setup.md](agent-guides/setup.md): 共通テンプレートの配置と検証
   - architecture.md: プロジェクトのアーキテクチャについて記載
   - directory.md: リポジトリのディレクトリ構成について（本ファイル）
   - index.md: OKF準拠のドキュメント索引
