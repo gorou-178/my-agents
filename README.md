@@ -9,6 +9,7 @@ Codex と Claude Code で共有するエージェント設定・ドキュメン�
 ## 導入方法
 
 `install.sh` に導入先フォルダを指定します。存在しないフォルダは自動作成されます。
+実行にはBashが必要です。`./install.sh`・`bash install.sh`・`sh install.sh`で起動でき、いずれもBashの通常モードで動作します。
 
 ```bash
 ./install.sh /path/to/project

@@ -52,4 +52,29 @@ dry_run_target="$temporary_root/dry-run-project"
 [[ ! -e "$dry_run_target" ]] || fail "dry-run created the target directory"
 grep -q '導入予定 AGENTS.md' "$temporary_root/dry-run.out" || fail "dry-run did not report planned files"
 
+shell_modes=(sh bash-posix bash-posix-env)
+if command -v dash >/dev/null 2>&1; then
+  shell_modes+=(dash)
+fi
+
+for shell_mode in "${shell_modes[@]}"; do
+  case "$shell_mode" in
+    sh) installer_command=(sh "$repository_root/install.sh") ;;
+    dash) installer_command=(dash "$repository_root/install.sh") ;;
+    bash-posix) installer_command=(bash --posix "$repository_root/install.sh") ;;
+    bash-posix-env) installer_command=(env POSIXLY_CORRECT=1 bash "$repository_root/install.sh") ;;
+  esac
+
+  shell_target="$temporary_root/$shell_mode project with spaces"
+  "${installer_command[@]}" --dry-run "$shell_target" >"$temporary_root/$shell_mode-dry-run.out" 2>&1 || fail "$shell_mode dry-run failed"
+  [[ ! -e "$shell_target" ]] || fail "$shell_mode dry-run created the target directory"
+  grep -q '導入予定 docs/index.md' "$temporary_root/$shell_mode-dry-run.out" || fail "$shell_mode dry-run did not reach documentation files"
+
+  "${installer_command[@]}" "$shell_target" >"$temporary_root/$shell_mode-install.out" 2>&1 || fail "$shell_mode install failed"
+  assert_same "$repository_root/AGENTS.md" "$shell_target/AGENTS.md"
+  assert_same "$repository_root/CLAUDE.md" "$shell_target/CLAUDE.md"
+  assert_same "$repository_root/claude/settings.json" "$shell_target/.claude/settings.json"
+  assert_same "$repository_root/docs/index.md" "$shell_target/docs/index.md"
+done
+
 printf 'PASS: install.sh の全テストに成功しました\n'
