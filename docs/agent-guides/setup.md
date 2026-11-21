@@ -26,7 +26,7 @@ description: 共通指示・プロジェクト設定・ユーザー設定の配�
 - Codexは`AGENTS.md`、Claude Codeは`CLAUDE.md`経由で同じ共通指示を読む。両方とも作業開始時に、存在する`docs/project-rules.md`を読む。
 - 実装・検証・開発ツールの操作前に、`AGENTS.md`から[開発ルール](development.md)を参照する。
 - 回答形式・シークレット管理は`AGENTS.md`が正本。
-- 開発・Git・学習・外部発信の詳細は`docs/agent-guides/`が正本。
+- 開発・ブラウザ操作・機械検証・シェルの落とし穴・Git・学習・外部発信の詳細は`docs/agent-guides/`が正本。場面別の手順を読む条件は`AGENTS.md`に記載する。
 - 手順をMarkdownリンクで案内することと、`@`で常時読み込むことを区別する。必要時参照の手順を`.claude/rules/`や常時インポートにも重複配置しない。
 
 ## 設定の分離

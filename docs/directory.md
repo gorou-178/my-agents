@@ -13,11 +13,14 @@ description: リポジトリ内のディレクトリと主要ファイルの役�
 - ./docs: ドキュメントディレクトリ
   - README.md: 文書の管理・更新ルール
   - agent-guides/: CodexとClaude Codeが作業条件に応じて参照する共通手順
-    - [development.md](agent-guides/development.md): 実装・検証、調査、ブラウザ操作、並行作業の開発ルール
+    - [browser.md](agent-guides/browser.md): ブラウザ自動操作・画面撮影のルール
+    - [development.md](agent-guides/development.md): 実装・検証、調査、サブエージェント活用の開発ルール
     - [external-communication.md](agent-guides/external-communication.md): 外部送信・公開前の確認手順
-    - [git.md](agent-guides/git.md): Gitの確認、コミット、同期に関する運用ルール
+    - [git.md](agent-guides/git.md): Gitの確認、コミット、同期、並行作業の混線防止に関する運用ルール
     - [learning.md](agent-guides/learning.md): 訂正や失敗から再利用可能な知識へ反映する手順
     - [setup.md](agent-guides/setup.md): 共通テンプレートの配置と検証
+    - [shell-pitfalls.md](agent-guides/shell-pitfalls.md): シェルと検索の偽陰性を招く落とし穴
+    - [verification.md](agent-guides/verification.md): 機械検証・一括置換・一覧API・日本語Markdownの検査
   - architecture.md: プロジェクトのアーキテクチャについて記載
   - directory.md: リポジトリのディレクトリ構成について（本ファイル）
   - index.md: OKF準拠のドキュメント索引
