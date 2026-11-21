@@ -6,12 +6,12 @@ description: リポジトリ内のディレクトリと主要ファイルの役�
 
 # ディレクトリ構成
 
-- ./claude: Claude Codeのユーザー設定テンプレート
-  - settings.json: Claude Codeの設定
+- ./.claude: Claude Codeの設定
+  - settings.json: プロジェクトで共有する権限設定
+  - settings.user.example.json: `~/.claude/settings.json`へ統合するユーザー設定の見本
   - statusline.sh: モデル名、コンテキスト使用率、レート制限を表示するステータスライン
-- ./src: ソースコードディレクトリ
 - ./docs: ドキュメントディレクトリ
-  - README.md: プロジェクトの要件や仕様ドキュメントへのインデックス
+  - README.md: 文書の管理・更新ルール
   - agent-guides/: CodexとClaude Codeが作業条件に応じて参照する共通手順
     - [development.md](agent-guides/development.md): 実装・検証、調査、ブラウザ操作、並行作業の開発ルール
     - [external-communication.md](agent-guides/external-communication.md): 外部送信・公開前の確認手順
