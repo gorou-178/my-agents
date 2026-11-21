@@ -26,7 +26,7 @@ description: 共通指示・プロジェクト設定・ユーザー設定の配�
 - Codexは`AGENTS.md`、Claude Codeは`CLAUDE.md`経由で同じ共通指示を読む。両方とも作業開始時に、存在する`docs/project-rules.md`を読む。
 - 実装・検証・開発ツールの操作前に、`AGENTS.md`から[開発ルール](development.md)を参照する。
 - 回答形式・シークレット管理は`AGENTS.md`が正本。
-- 開発・Git・学習・外部発信の詳細は`docs/agent-guides/`が正本。
+- 開発・ブラウザ操作・機械検証・シェルの落とし穴・Git・学習・外部発信の詳細は`docs/agent-guides/`が正本。場面別の手順を読む条件は`AGENTS.md`に記載する。
 - 手順をMarkdownリンクで案内することと、`@`で常時読み込むことを区別する。必要時参照の手順を`.claude/rules/`や常時インポートにも重複配置しない。
 
 ## 設定の分離
@@ -55,7 +55,7 @@ description: 共通指示・プロジェクト設定・ユーザー設定の配�
 | 対象 | 禁止する操作・代表的な形式 |
 | --- | --- |
 | Gitのリポジトリ作成 | `git init` |
-| Gitの削除 | ブランチ・タグの削除、`git push --delete`・`-d`・`:ref`によるリモート参照の削除 |
+| Gitの削除 | ブランチ・タグの削除、`git push --delete`・`-d`によるリモート参照の削除 |
 | Gitの強制更新 | `git push --force`・`--force-with-lease`・`-f`・主な結合短縮形、`+refspec`、`--mirror`、`--prune` |
 | GitHub CLIの削除 | `gh … delete`・`delete-asset`、APIの`DELETE`や`deleteRepository`を含む呼び出し |
 | GitHub CLIのリポジトリ作成 | `gh repo create`・`gh repo fork`、`createRepository`・`forkRepository`を含むAPI呼び出し |
@@ -65,6 +65,9 @@ description: 共通指示・プロジェクト設定・ユーザー設定の配�
 Git・GitHub CLIではグローバルオプションが先行する代表的な形式と実行ファイルのパス指定も対象にする。`git status`・`diff`・通常のpush、`gh repo view`などはこの禁止リストの対象に含めず、既存の承認方針を適用する。
 
 これらはコマンド文字列に対する制限であり、独自エイリアス、任意のスクリプト、APIの全リクエスト内容、Git内部で起動するSSHなどまで意味を解析して遮断するものではない。禁止操作を別の経路へ置き換えて実行しない。
+
+- パターンの末尾のワイルドカードは`Bash(npm test *)`のスペース区切りで書く。末尾の`:*`は` *`と同じ意味になるため、`:`で終わる引数（`git push origin :branch`による削除、`localhost:3000`など）は表現できない。`:ref`による削除はパターンで禁止していないので、他の禁止操作と同様に実行しない。
+- `*`は空白を含む任意の文字列に一致する。送信先URLを含むコマンドを`*`で許可すると、後続の引数で別の宛先へ送る形も許可されるため、送信を伴うコマンドは`allow`に追加しない。
 
 ## 配置後の検証
 

@@ -36,6 +36,17 @@ Codex と Claude Code で共有するエージェント設定・ドキュメン�
 ./install.sh --dry-run --backup /path/to/project
 ```
 
+## dotfiles との役割分担
+
+手で書くエージェントの方針はこのリポジトリ、ツールの導入とツールが生成するファイルは[dotfiles](https://github.com/gorou-178/dotfiles)で管理します。
+
+| リポジトリ | 管理するもの | Herdrの例 |
+| --- | --- | --- |
+| my-agents | 共通指示、手順、権限ルールなどの方針 | `claude/settings.user.example.json`の`allow`・`ask`・`deny` |
+| dotfiles | ツール本体、設定、補完、ツールが生成するスキル | `scripts/setup-herdr.sh`が`herdr --skill`の出力を`~/.agents/skills/herdr/`と`~/.claude/skills/herdr/`へ配置 |
+
+ツールが生成するスキルは、導入したバージョンと内容が対応するため、このリポジトリへコミットしません。更新はdotfilesのセットアップを再実行して行います。
+
 ## テスト
 
 ```bash
