@@ -12,7 +12,8 @@ okf_version: "0.2"
 - [機械検証と一括編集](agent-guides/verification.md) - 検証スクリプト・一括置換・一覧API・日本語Markdownの機械検査（状態: Draft、最終更新: 2026-11-21 JST）
 - [シェルと検索の落とし穴](agent-guides/shell-pitfalls.md) - zshの展開・シンボリックリンク経由の検索による偽陰性（状態: Draft、最終更新: 2026-11-21 JST）
 - [Git運用](agent-guides/git.md) - 確認・コミット・同期と並行作業の混線防止（状態: Draft、最終更新: 2026-11-21 JST）
-- [共通テンプレートの配置と検証](agent-guides/setup.md) - 共通指示と手順の配置・読み込み・検証方法（状態: Draft、最終更新: 2026-09-20 JST）
+- [外部発信時の事前確認](agent-guides/external-communication.md) - 外部送信・公開時の承認条件とユーザー所有GitHubリポジトリの例外（状態: Draft、最終更新: 2026-11-21 JST）
+- [共通テンプレートの配置と検証](agent-guides/setup.md) - 共通指示と手順の配置・読み込み・検証方法（状態: Draft、最終更新: 2026-11-21 JST）
 - [問題解決ナレッジ](knowledge.md) - レビューやエージェントとのやり取りから得た再利用可能な行動知
 
 ## 設計

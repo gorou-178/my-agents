@@ -55,7 +55,7 @@ description: 共通指示・プロジェクト設定・ユーザー設定の配�
 | 対象 | 禁止する操作・代表的な形式 |
 | --- | --- |
 | Gitのリポジトリ作成 | `git init` |
-| Gitの削除 | ブランチ・タグの削除、`git push --delete`・`-d`・`:ref`によるリモート参照の削除 |
+| Gitの削除 | ブランチ・タグの削除、`git push --delete`・`-d`によるリモート参照の削除 |
 | Gitの強制更新 | `git push --force`・`--force-with-lease`・`-f`・主な結合短縮形、`+refspec`、`--mirror`、`--prune` |
 | GitHub CLIの削除 | `gh … delete`・`delete-asset`、APIの`DELETE`や`deleteRepository`を含む呼び出し |
 | GitHub CLIのリポジトリ作成 | `gh repo create`・`gh repo fork`、`createRepository`・`forkRepository`を含むAPI呼び出し |
@@ -65,6 +65,9 @@ description: 共通指示・プロジェクト設定・ユーザー設定の配�
 Git・GitHub CLIではグローバルオプションが先行する代表的な形式と実行ファイルのパス指定も対象にする。`git status`・`diff`・通常のpush、`gh repo view`などはこの禁止リストの対象に含めず、既存の承認方針を適用する。
 
 これらはコマンド文字列に対する制限であり、独自エイリアス、任意のスクリプト、APIの全リクエスト内容、Git内部で起動するSSHなどまで意味を解析して遮断するものではない。禁止操作を別の経路へ置き換えて実行しない。
+
+- パターンの末尾のワイルドカードは`Bash(npm test *)`のスペース区切りで書く。末尾の`:*`は` *`と同じ意味になるため、`:`で終わる引数（`git push origin :branch`による削除、`localhost:3000`など）は表現できない。`:ref`による削除はパターンで禁止していないので、他の禁止操作と同様に実行しない。
+- `*`は空白を含む任意の文字列に一致する。送信先URLを含むコマンドを`*`で許可すると、後続の引数で別の宛先へ送る形も許可されるため、送信を伴うコマンドは`allow`に追加しない。
 
 ## 配置後の検証
 

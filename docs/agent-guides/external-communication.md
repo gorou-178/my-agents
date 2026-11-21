@@ -19,7 +19,7 @@ description: 外部送信・公開時の承認条件とユーザー所有GitHub�
 
 - ユーザーが所有するGitHubリポジトリ内で完結する操作は、外部発信の事前確認対象から除外する
 - 所有は、リポジトリのownerが認証中のGitHubユーザーと一致する場合、ユーザーが自身の所有リポジトリであると明示している場合、またはpush先のGitHub remote URLのowner部分が`gorou-178`と一致する場合に確認済みとする
-- `gorou-178`の判定では、remote URLのホストが`github.com`であることと、HTTPS形式またはSSH形式のowner部分が完全一致することをコマンドで確認する。push対象ではないremoteや、URLの別の部分に同じ文字列を含むだけのものは使用しない
+- `gorou-178`の判定では、実際のpush先URLのホストが`github.com`であることと、HTTPS形式またはSSH形式のowner部分が完全一致することをコマンドで確認する。fetch専用URL、push対象ではない別remote、ホスト名以外の場所に`github.com`を含むURL、owner以外の場所に`gorou-178`を含むURLは根拠にしない
 - 例外には、Git push、Issue・Pull Request・レビューコメントの作成や更新、GitHub Releaseの公開を含む
 - Organization所有、共同所有、管理権限のみ付与されたリポジトリは、ユーザー本人の所有が確認できない限り例外に含めない
 - 所有関係を確認できない場合は、通常の外部発信ルールに従って実行直前に確認する
